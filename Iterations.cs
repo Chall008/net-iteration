@@ -32,7 +32,10 @@ namespace DotnetIteration
         //
         public static IEnumerable<string> Yelling(List<string> words)
         {
-            throw new System.NotImplementedException();
+            var upperCaseWords = words.Select(word => word.ToUpper());
+
+            return upperCaseWords;
+
         }
 
 
@@ -43,7 +46,10 @@ namespace DotnetIteration
         // 
         public static IEnumerable<int> Double(List<int> numbers)
         {
-            throw new System.NotImplementedException();
+            var newNumber = numbers.Select(number => number * 2);
+            return newNumber;
+
+
         }
 
 
@@ -55,7 +61,11 @@ namespace DotnetIteration
         // 
         public static IEnumerable<string> StringyIndexes(List<string> words)
         {
-            throw new System.NotImplementedException();
+            var stringyWords = words.Select((word, index) => $"{word} is at index {index}");
+
+            return stringyWords;
+
+
         }
 
 
@@ -65,7 +75,11 @@ namespace DotnetIteration
         // 
         public static IEnumerable<int> OnlyTheEvenSurvive(List<int> numbers)
         {
-            throw new System.NotImplementedException();
+            //Where statement needs to compare values to output a bool
+            var evenNumbers = numbers.Where(number => number % 2 == 0);
+            return evenNumbers;
+
+
         }
 
 
@@ -76,7 +90,11 @@ namespace DotnetIteration
         // 
         public static IEnumerable<int> OnlyTheEvenIndexedSurvive(List<int> numbers)
         {
-            throw new System.NotImplementedException();
+            var listOfNumbers = numbers.Where((numbers, index) => index % 2 == 0);
+            return listOfNumbers;
+
+
+            //var onlyTheEvenNumbers = numbers.Where(number => number % 2 == 0).Select((numbers, index)
         }
 
 
@@ -87,7 +105,8 @@ namespace DotnetIteration
         // 
         // A movie object looks like this:
         // 
-        // new Movie() {
+        // new Movie() 
+
         //   Name: "Get Out",
         //   Year: "2017",
         //   Score: 99
@@ -95,7 +114,10 @@ namespace DotnetIteration
         // 
         public static IEnumerable<string> BestMovieOfTheYear(List<Movie> movies, int yearToMatch)
         {
-            throw new System.NotImplementedException();
+
+            var popularMovieInOneLine = movies.Where(movie => movie.Score >= 90 && movie.Year == yearToMatch).Select(movies => movies.Name);
+            return popularMovieInOneLine;
+
         }
 
 
@@ -105,7 +127,12 @@ namespace DotnetIteration
         // 
         public static bool EveryoneIsOdd(List<int> numbers)
         {
-            throw new System.NotImplementedException();
+            // Figure out if all the movies are old movies, before 1965
+            var allOddNumbers = numbers.All(number => number % 2 != 0);
+            return allOddNumbers;
+
+
+
         }
 
 
@@ -116,7 +143,11 @@ namespace DotnetIteration
         // 
         public static string FindTheNeedle(List<string> sentences)
         {
-            throw new System.NotImplementedException();
+            var specificWord = sentences.First(sentence => sentence.Contains("needle"));
+            return specificWord;
+
+
+            //var newWord = sentences.Select(sentence = needle )
         }
 
 
@@ -127,7 +158,11 @@ namespace DotnetIteration
         // 
         public static int FindTheNeedleIndex(List<string> sentences)
         {
-            throw new System.NotImplementedException();
+            var insideWord = sentences.FindIndex(sentence => sentence.Contains("needle"));
+            return insideWord;
+
+
+
         }
 
 
@@ -138,7 +173,15 @@ namespace DotnetIteration
         // 
         public static bool SomeoneToLove(List<string> words)
         {
-            throw new System.NotImplementedException();
+            //var areAllOldMovies = movies.All(
+            // movie => movie.ReleasedDate.Year < 1965);
+            // Our favorite movie is Jaws, let's get it from the list if it is there. If it isn't we'll get an exception/error
+            // var fourCharacters = words.First(word => word.Name == "Jaws");
+            //return fourCharacters;
+            var someoneToLoveWord = words.Any(word => word.Length == 4);
+            return someoneToLoveWord;
+
+
         }
     }
 }
